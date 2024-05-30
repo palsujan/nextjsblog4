@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { title } from 'process'
 import React from 'react'
 
@@ -27,7 +28,19 @@ const Header = () => {
 
     ]
   return (
-    <div>Header</div>
+    <div className="w-full h-20 bg-gray-950 text-gray-200 top-0 z-50">
+        <div className="max-w-screen-xl mx-auto h-full flex items-center justify-center gap-5">
+            {navigation.map((item)=>(
+                <Link 
+                    href={item?.href}
+                    key={item?._id}
+                    className="uppercase text-sm hover:text-while duration-200"
+                >
+                    {item?.title}
+                </Link>
+            ))}
+        </div>
+    </div>
   )
 }
 
